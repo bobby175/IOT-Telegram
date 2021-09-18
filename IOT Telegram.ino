@@ -37,9 +37,9 @@ CTBotReplyKeyboard Tbl;
 
  bool TampilkanTombol;
               
- String ssid = "REDMI NOTE 8";
- String pass = "SATUDUATIGA";
- String token = "1977118306:AAEPjKFUTngx-dvR5xLlXUyY4_J9iyCOOVI";
+ String ssid = "NAMA WIFI"; //Nama WIFI Anda
+ String pass = "PASSWORD";   //Pasword WIFI Anda
+ String token = "TOKEN";    //Token Bot Telegram
 
 void setup() {
   
@@ -75,12 +75,12 @@ void setup() {
         digitalWrite(Lampu4,HIGH);}
         
         
-	      pinMode(Lampu1, OUTPUT);     
+	pinMode(Lampu1, OUTPUT);     
         pinMode(Lampu2, OUTPUT);      
         pinMode(Lampu3, OUTPUT);     
         pinMode(Lampu4, OUTPUT);  
            
-	      digitalWrite(Lampu1, HIGH);  
+	digitalWrite(Lampu1, HIGH);  
         digitalWrite(Lampu2, HIGH);   
         digitalWrite(Lampu3, HIGH);  
         digitalWrite(Lampu4, HIGH); 
@@ -120,35 +120,43 @@ TBMessage msg;
     if (msg.text.equalsIgnoreCase("/Start")) {}
      
     else if (msg.text.equalsIgnoreCase("T1 ON")) {  
-      digitalWrite(Lampu1, LOW); Lampu_1 = LOW;   EEPROM.write(0,LOW); EEPROM.commit();                        
+      digitalWrite(Lampu1, LOW); Lampu_1 = LOW;   EEPROM.write(0,LOW); EEPROM.commit();   
+	    Serial.println("User mengirim Printah T1 ON");
       myBot.sendMessage(msg.sender.id, "T1 Sudah diaktifkan");
     }
     else if (msg.text.equalsIgnoreCase("T1 OFF")) { 
-      digitalWrite(Lampu1, HIGH); Lampu_1 = HIGH; EEPROM.write(0,HIGH); EEPROM.commit();                           
+      digitalWrite(Lampu1, HIGH); Lampu_1 = HIGH; EEPROM.write(0,HIGH); EEPROM.commit();  
+	    Serial.println("User mengirim Printah T1 OFF");
       myBot.sendMessage(msg.sender.id, "T1 Sudah dimatikan"); 
     }
     else if (msg.text.equalsIgnoreCase("T2 ON")) {  
-      digitalWrite(Lampu2, LOW); Lampu_4 = LOW;   EEPROM.write(1,LOW); EEPROM.commit();                         
+      digitalWrite(Lampu2, LOW); Lampu_4 = LOW;   EEPROM.write(1,LOW); EEPROM.commit(); 
+	    Serial.println("User mengirim Printah T2 ON");
       myBot.sendMessage(msg.sender.id, "T2 Sudah diaktifkan");
     }
     else if (msg.text.equalsIgnoreCase("T2 OFF")) { 
-      digitalWrite(Lampu2, HIGH); Lampu_2 = HIGH; EEPROM.write(1,HIGH); EEPROM.commit();                          
+      digitalWrite(Lampu2, HIGH); Lampu_2 = HIGH; EEPROM.write(1,HIGH); EEPROM.commit();   
+	    Serial.println("User mengirim Printah T2 OFF");
       myBot.sendMessage(msg.sender.id, "T2 Sudah dimatikan"); 
     }
     else if (msg.text.equalsIgnoreCase("T3 ON")) {  
-      digitalWrite(Lampu3, LOW); Lampu_4 = LOW;   EEPROM.write(2,LOW); EEPROM.commit();                          
+      digitalWrite(Lampu3, LOW); Lampu_4 = LOW;   EEPROM.write(2,LOW); EEPROM.commit();  
+	    Serial.println("User mengirim Printah T3 ON");
       myBot.sendMessage(msg.sender.id, "T3 Sudah diaktifkan");
     }
     else if (msg.text.equalsIgnoreCase("T3 OFF")) { 
-      digitalWrite(Lampu3, HIGH); Lampu_3 = HIGH; EEPROM.write(2,HIGH); EEPROM.commit();                          
+      digitalWrite(Lampu3, HIGH); Lampu_3 = HIGH; EEPROM.write(2,HIGH); EEPROM.commit();      
+	    Serial.println("User mengirim Printah T3 OFF");
       myBot.sendMessage(msg.sender.id, "T3 Sudah dimatikan"); 
     }
     else if (msg.text.equalsIgnoreCase("T4 ON")) {  
-      digitalWrite(Lampu4, LOW); Lampu_4 = LOW;   EEPROM.write(3,LOW); EEPROM.commit();                          
+      digitalWrite(Lampu4, LOW); Lampu_4 = LOW;   EEPROM.write(3,LOW); EEPROM.commit();   
+	    Serial.println("User mengirim Printah T4 ON");
       myBot.sendMessage(msg.sender.id, "T4 Sudah diaktifkan");
     }
     else if (msg.text.equalsIgnoreCase("T4 OFF")) { 
-      digitalWrite(Lampu4, HIGH); Lampu_4 = HIGH; EEPROM.write(3,HIGH); EEPROM.commit();                          
+      digitalWrite(Lampu4, HIGH); Lampu_4 = HIGH; EEPROM.write(3,HIGH); EEPROM.commit();    
+	    Serial.println("User mengirim Printah T4 OFF");
       myBot.sendMessage(msg.sender.id, "T4 Sudah dimatikan"); 
     }
     else if (msg.text.equalsIgnoreCase("TES")) { 
@@ -179,7 +187,8 @@ TBMessage msg;
       Lampu_1 = HIGH; 
       Lampu_2 = HIGH;
       Lampu_3 = HIGH;
-      Lampu_4 = HIGH;       
+      Lampu_4 = HIGH;
+      Serial.println("User mengirim Printah TES");
       myBot.sendMessage(msg.sender.id, "TES BERHASIL"); 
     }
      
@@ -191,7 +200,8 @@ TBMessage msg;
       Lampu_1 = LOW; 
       Lampu_2 = LOW; 
       Lampu_3 = LOW; 
-      Lampu_4 = LOW;                             
+      Lampu_4 = LOW; 
+      Serial.println("User mengirim Printah Semua ON");
       myBot.sendMessage(msg.sender.id, "Semua Sudah diaktifkan");
     }
     else if (msg.text.equalsIgnoreCase("Semua OFF")) { 
@@ -203,7 +213,7 @@ TBMessage msg;
       Lampu_2 = HIGH;
       Lampu_3 = HIGH;
       Lampu_4 = HIGH;
-                                   
+      Serial.println("User mengirim Printah Semua OFF");                             
       myBot.sendMessage(msg.sender.id, "Semua Sudah dimatikan"); 
     }
           
@@ -232,9 +242,9 @@ TBMessage msg;
         myBot.sendMessage(msg.sender.id, "Status saat ini : \n\n👉 " + Status_Lampu_1 + "\n\n👉 " + Status_Lampu_2 + "\n\n👉 " + Status_Lampu_3 + "\n\n👉 " + Status_Lampu_4 + "\n\nGunakan tombol dibawah untuk mengontrol lampu 👇", Tbl);
         Serial.println("\nStatus saat ini : \n\n👉 " + Status_Lampu_1 + "\n👉 " + Status_Lampu_2 + "\n👉 " + Status_Lampu_3 + "\n👉 " + Status_Lampu_4 + "\n");
       }  else {   
-			        myBot.sendMessage(msg.sender.id, "⛔️ ERROR : Perintah tidak dikenali!!!\n\nGunakan tombol dibawah untuk printah 👇", Tbl);
-              Serial.println("\nUser mengirim perintah yang tidak dikenal\n");
-		    }
+	myBot.sendMessage(msg.sender.id, "⛔️ ERROR : Perintah tidak dikenali!!!\n\nGunakan tombol dibawah untuk printah 👇", Tbl);
+        Serial.println("\nUser mengirim perintah yang tidak dikenal\n");
+	    }
 	   }
 	delay(100);
 }
